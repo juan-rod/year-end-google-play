@@ -20,14 +20,14 @@ export default {
     return {
       searchQuery: '',
       byArtist: null,
-      bySong: null,
-      byYear: []
+      bySong: null
     }
   },
   mounted() {
     var now = moment('2017-01-16T00:01:17.414Z').format('YYYY')
     console.log('moment:',now)
-   this.byYear = this.groupItems('time')
+    this.highestKey()
+  //  this.byYear = this.groupItems('time')
   //  this.byArtist = this.groupItems('description')
   },
   computed: {
@@ -42,60 +42,48 @@ export default {
       })
       return playKeys
     },
-    groupByArtist () {
-      // Array.prototype.groupBy(prop => {
-      //   return this.reduce((groups, item) => {
-      //     console.log('groups:', groups)
-      //     console.log('item:', item)
-      //     const val = item[prop]
-      //     groups[val] = groups[val] || []
-      //     groups[val].push(item)
-      //     return groups
-      //   }, {})
-      // })
-      // return playData.groupBy('description')
-      // return this.artist('description')
+    byYear () {
+      return playData.reduce(function(groups, item) {
+        const val = moment(item['time']).format('YYYY')
+        groups[val] = groups[val] || []
+        groups[val].push(item)
+        return groups
+      }, {})
     },
-    popArtist () {
-      // playData.filter(data => )
-      // function groupBy(array, keyGetter) {
-        //   const map = new Map();
-      //   array.forEach((item) => {
-        //       const artist = keyGetter(item);
-      //       if (!map.has(artist)) {
-        //           map.set(artist, [item]);
-      //       } else {
-        //           map.get(artist).push(item);
-      //       }
-      //   });
-      //   return map;
-      // }
-      // let description = playData.filter(data => data.description)
-      // console.log('description:', playData => playData.description)
-      // return this.artistList = groupBy(playData, playData => playData.description)
+    artistPerYear () {
+      return this.byYear['2017'].reduce(function(groups, item) {
+       const val = item['description']
+        groups[val] = groups[val] || []
+        groups[val].push(item)
+        return groups
+      }, {})
+    },
+    topArtistByYear () {
+      let obj = this.artistPerYear
+      return Object.keys(obj).reduce(function(res,key){
+        if(res.length <obj[key].length){
+          res.highestKey = key;
+          res.length = obj[key].length;
+          res.arr =  obj[key];
+        }
+        return res;  
+
+      },{highestKey:null,length:0, arr:null})
     }
   },
   methods: {
-    groupItems (key) {
-      console.log('hello from artist')
-      Array.prototype.groupBy = function(prop) {
-        console.log('prop:', prop)
-        return this.reduce((groups, item) => {
-          console.log('groups:', groups)
-          // console.log('item:', item)
-          let val
-          if (prop === 'time') {
-            val = moment(item[prop]).format('YYYY')
-            console.log('val', val)
-          } else {
-            val = item[prop]
-          } 
-          groups[val] = groups[val] || []
-          groups[val].push(item)
-          return groups
-        }, {})
-      }
-      playData.groupBy(key)
+    highestKey () {
+      let obj = this.artistPerYear
+      let highest = Object.keys(obj).reduce(function(res,key){
+        if (res.length < obj[key].length) {
+          res.highestKey = key;
+          res.length = obj[key].length;
+          res.arr =  obj[key];
+        }
+        return res;  
+
+      },{highestKey:null,length:0, arr:null})
+      console.log('highest:', highest)
     }
   },
   components: { GridTemp },
