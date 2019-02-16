@@ -1,0 +1,54 @@
+// colors
+$rose-fusion: #f86654;
+$ghost-white: #fcfdff;
+$midnight-dreams: #062439;
+$sweet-dreams: #9cccea;
+$night-thistle: #677eac;
+$antarctic-blue: #293c5e;
+$black: #181a1b;
+$smoky-black: #4c4e4d;
+// $ghost-white: #fcfdff;
+// $a-gray: rgba(221,225,218,1);
+// $a-red:rgba(214,32,52,1);
+// $a-pink:rgba(222,178,182,1);
+// $a-green:rgba(58,98,82,1);
+// $light-gray-blue: #dae4eb;
+// $dark-gray-blue: #58585b;
+// $smoky-black: #4c4e4d;
+// $projector-blue: #0000fa;
+// $a-nother-red:#f2514b;
+// $a-beige:#eca27e;
+// $a-deep-red:#7b0d08;
+// $a-nother-green:#b0a976;
+
+// cc map
+$colors:(
+  default:(
+    parent-bg: $rose-fusion,
+    bg: $midnight-dreams,
+    txt: $sweet-dreams,
+    border: $night-thistle,
+    black: $black,
+    shadow: $smoky-black,
+    selection: $rose-fusion,
+    white: $ghost-white
+
+    // primary: $a-red,
+    // secondary: $a-pink,
+    // third: $a-green,
+    // overlay: $dark-gray-blue,
+    // one:$a-nother-red,
+    // two:$a-beige,
+    // three:$a-nother-green,
+  )
+
+  // alt:(
+  //   txt: $dark-gray-blue,
+  //   bg: $a-gray,
+  //   border: $dark-gray-blue
+  // )
+
+  // inv:(
+  //   txt: $ghost-white
+  // )
+);

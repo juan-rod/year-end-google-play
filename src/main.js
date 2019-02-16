@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-// import moment from 'moment'
+import VueRouter from 'vue-router'
 
-// Vue.use(moment);
+Vue.use(VueRouter)
 Vue.config.productionTip = false
 
 new Vue({

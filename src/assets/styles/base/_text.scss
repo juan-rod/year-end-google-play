@@ -1,0 +1,55 @@
+//google fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700|Rubik:400,700');
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,500,700');
+//font-family: 'Rubik', sans-serif;
+//font-family: 'Roboto', sans-serif;
+//font-family: 'Fira Mono', monospace;
+// font stack
+@mixin font-stack($ff, $weight: normal) {
+  font-family: #{$ff}, Helvetica, Arial, sans-serif;
+  font-weight: $weight;
+}
+
+// font families
+%ff__Roboto--300 { @include font-stack('Roboto', 300) }
+%ff__Roboto--400 { @include font-stack('Roboto', 400) }
+%ff__Roboto--700 { @include font-stack('Roboto', 700) }
+%ff__Rubik--400 { @include font-stack('Rubik', 400) }
+%ff__Rubik--700 { @include font-stack('Rubik', 700) }
+%ff__FiraMono--400 { @include font-stack('Fira Mono', 400) }
+%ff__FiraMono--500 { @include font-stack('Fira Mono', 500) }
+%ff__FiraMono--700 { @include font-stack('Fira Mono', 700) }
+
+// extend placeholders
+%txt--body {
+    @extend %ff__Roboto--400;
+    font-size: 1rem;
+}
+%txt--title {
+    @extend %ff__Rubik--700;
+    font-size: 3.2rem;
+    line-height: 1.2;
+    text-transform: capitalize;
+}
+
+%txt--subtitle {
+    @extend %ff__Rubik--400;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+%txt--heading {
+    @extend %ff__Roboto--700;
+    font-size: 1.15rem;
+    line-height: 1.5;
+}
+%txt--code {
+    @extend %ff__FiraMono--500;
+    font-size: 1.1rem;
+    line-height: .9;
+    // line-height: 1.5;
+    letter-spacing: -2px;
+}
+
+  
+
