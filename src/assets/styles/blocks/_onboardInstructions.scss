@@ -1,0 +1,30 @@
+.onboard__instructions {
+  .submit {
+    width: 100%;
+    padding: 0 1.5em;
+    @include flexCenter;
+    align-items: flex-end;
+    &-button {
+      @include btnCrisp;
+      box-shadow: none;
+      &:focus{
+        outline:none;
+      }
+      &:hover{
+        background-color: cc(txt);
+        color: cc(bg);
+        transform: translateY(-1px);
+        box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+      }
+    
+      &.active{
+        background-color: cc(txt);
+        transform: translateY(1px);
+        i {
+          color: cc(bg);
+        }
+      }
+
+    }
+  }
+}

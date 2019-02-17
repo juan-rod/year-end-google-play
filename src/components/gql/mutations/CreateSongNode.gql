@@ -1,0 +1,10 @@
+mutation CreateSongNode($input: App_createSongInput!){
+  App_createSong(
+    input: $input
+  ){
+    node{
+    title
+    time
+    description
+  }}
+}

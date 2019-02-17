@@ -11,7 +11,7 @@ body {
     transform: translateX(-340px);
   }
   h1{
-      @include fluid-type(32px, 42px);
+      @include fluid-type(46px, 65px);
   }
   h2{
       @include fluid-type(24px, 32px);
